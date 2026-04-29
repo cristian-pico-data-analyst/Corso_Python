@@ -5,6 +5,7 @@ Variabili e tipi di dati
 nome = "Cristian" # è una str (string), quindi insieme di testo
 cognome = "Pico" # è una str (string), quindi insieme di testo
 eta = 31 # int (integer), quindi un numero
+email = "cristian.pico@outlook.it"
 stipendio = 1.500 # float (decimal)
 attivo = True # bool (boolean), che restituisce Vero o Falso
 
@@ -17,3 +18,8 @@ print('tipo del nome => ' + str(type(nome)) + ' = string') # questo restituisce 
 print('tipo dell\' età => ' + str(type(eta)) + ' = int') # questo restituisce il tipo della variabile int
 
 print('tipo dello stipendio => ' + str(type(stipendio)) + ' = float') # questo restituisce il tipo della variabile float
+
+# Concatenazione: il comando 'f' concatena le variabili, quindi da così
+# print('Ciao mi chiamo ' + nome + ' ' + cognome + ' ed ho ' + str(eta) + ' anni, la mia emial è ' + email); 
+# possiamo fare così
+print(f'Ciao mi chiamo {nome} {cognome} e ho {eta} anni, la mia email è {email}')
