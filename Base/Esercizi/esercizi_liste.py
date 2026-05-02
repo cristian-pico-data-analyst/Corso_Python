@@ -1,5 +1,5 @@
 """
-Esercizi sulle liste. 
+Esercizi sulle liste
 """
 
 # Esercizio 1: Creare una lista vuota e assegnarla a una variabile.
@@ -10,7 +10,8 @@ print(f'Questa lista è vuota {cibo}\n')
 # Esercizio 2: Creare una lista di numeri interi da 1 a 5 e assegnarla a una variabile.
 print("--------- LISTA NUMERI INTERI ---------\n")
 numeri_interi = [1, 2, 3, 4, 5]
-print(f"Questo numero è parte di una lista di numeri interi => {numeri_interi}\n")
+for numero_intero in numeri_interi:
+    print(f"Questo numero è parte di una lista di numeri interi => {numero_intero}\n")
 
 # Esercizio 3: Accedere all'elemento con indice 2 della lista precedente.
 print("--------- ELEMENTO CON INDICE 2 ---------\n")
@@ -21,7 +22,8 @@ print(f"L'elemento con indice 2 è: {elemento_scelto}\n")
 print("--------- AGGIUNGO ELEMENTO 6 ---------\n")
 numeri_interi.append(6) # il .append() inserisce un valore alla fine della lista che va a richiamare
 numeri_interi.append(6)
-print(f"Questo numero è parte di una lista di numeri interi => {numeri_interi}\n")
+for numero_intero in numeri_interi:
+    print(f"Questo numero è parte di una lista di numeri interi => {numero_intero}\n")
 
 # Esercizio 5: Rimuovere l'elemento con indice 3 dalla lista precedente.
 print("--------- ELIMINO UN ELEMENTO DALL' INDICE 3 ---------\n")
