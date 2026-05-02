@@ -54,4 +54,16 @@ print(f"Ora la lista è in ordine decrescente => {numeri_interi}\n")
 # Esercizio 9: Contare quante volte l'elemento "2" appare nella lista precedente.
 print("--------- CONTARE ELEMENTO 2 ---------\n")
 count_numero = numeri_interi.count(6)
-print(f"Il numero 2 è presente => {count_numero}\n")
+print(f"Il numero 6 è presente => {count_numero}\n")
+
+# Esercizio 10: Creare una condizione for con i dati inseriti
+print("--------- CONDIZIONI ---------\n")
+numero_cercato = int(input("Inserisci il numero della lista da contare: "))
+conteggio = numeri_interi.count(numero_cercato)
+if conteggio == 2:
+    print(f"Sono presenti n° {conteggio} del numero {numero_cercato}\n")
+elif conteggio == 1:
+    print(f"Sono presenti n° {conteggio} del numero {numero_cercato}\n")
+else:
+    print(f"Non sono presenti numeri\n")
+    
