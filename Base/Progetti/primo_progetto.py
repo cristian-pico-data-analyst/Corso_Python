@@ -36,8 +36,7 @@ while True: # fin che la condizione è vera, il ciclo continua a ripetersi
         # dove il nome è la chiave e i voti sono il valore
         studenti[nome] = voti
 
-    
-    # elstrimenti se la scelta dell'utente è ugulale a "2"
+    # altrimenti se la scelta dell'utente è uguale a "2"
     elif scelta == "2":
         print("\n-----Registro Studenti-----\n")
         
@@ -45,7 +44,7 @@ while True: # fin che la condizione è vera, il ciclo continua a ripetersi
         for nome, voti in studenti.items():
             print(f"Studente: {nome} - Voti: {voti}")
             
-    # elstrimenti se la scelta dell'utente è ugulale a "3"
+    # altrimenti se la scelta dell'utente è uguale a "3"
     elif scelta == "3": 
         print("\n-----Media Voti-----\n")
         
@@ -58,7 +57,7 @@ while True: # fin che la condizione è vera, il ciclo continua a ripetersi
                 media = sum(voti) / len(voti) # calcola la media dei voti dello studente, sommando tutti i voti con la funzione sum() e dividendo per il numero di voti con la funzione len()
                 print(f"Studente: {nome} - Media Voti: {media:.2f}")   # 12.3456 -> 12.35
             
-    # elstrimenti se la scelta dell'utente è ugulale a "4"
+    # altrimenti se la scelta dell'utente è uguale a "4"
     elif scelta == "4":
         print("\n-----Promossi/Bocciati-----\n")
         
@@ -76,7 +75,7 @@ while True: # fin che la condizione è vera, il ciclo continua a ripetersi
             else:
                 print(f"Studente: {nome} - Bocciato (Media: {media:.2f})")
         
-    # elstrimenti se la scelta dell'utente è ugulale a "5"
+    # altrimenti se la scelta dell'utente è uguale a "5"
     elif scelta == "5":
         print("Uscita dal programma.")
         break # esce dal ciclo while, terminando il programma
