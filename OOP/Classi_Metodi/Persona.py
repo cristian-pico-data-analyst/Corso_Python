@@ -1,3 +1,4 @@
+# Creazione di una classe chiamata Persona, che rappresenta una persona con alcune proprietà come nome, cognome, email e telefono.
 class Persona:
     def __init__(self, nome, cognome, email, telefono): # Proprietà della classe
         self.nome = nome # self è un riferimento all'istanza corrente della classe, e viene usato per accedere alle variabili che appartengono alla classe. In questo caso, stiamo creando una variabile di istanza chiamata nome e assegnandole il valore del parametro nome passato al costruttore.
@@ -6,9 +7,10 @@ class Persona:
         self.telefono = telefono # Stiamo creando una variabile di istanza chiamata telefono e assegnandole il valore del parametro telefono passato al costruttore.
 
     
-
+# Creazione di un'istanza (studente) della classe Persona, passando i valori per nome, cognome, email e telefono al costruttore.
 studente = Persona("Cristian", "Rordi", "cristian.rordi@example.com", "3426178345") # Creazione di un'istanza della classe Persona, passando i valori per nome, cognome, email e telefono al costruttore.
 
+# Accesso alle proprietà dell'istanza studente e stampa dei loro valori.
 print(studente.nome) # Accesso alla proprietà nome dell'istanza studente e stampa del suo valore.
 print(studente.cognome) # Accesso alla proprietà cognome dell'istanza   studente e stampa del suo valore.
 print(studente.email) # Accesso alla proprietà email dell'istanza studente e stampa del suo valore.
