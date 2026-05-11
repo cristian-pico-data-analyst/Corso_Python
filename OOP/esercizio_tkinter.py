@@ -2,13 +2,13 @@
 ESERCIZIO E CONSEGNA DA FARE PER LUNEDÌ: 😉
 Crea una applicazione usando Tkinter + OOP come abbiamo visto oggi con:
 Requisiti:
-1️⃣ finestra con: Titolo, Dimensione fissa, Colore sfondo
+1️⃣ Finestra con: Titolo, Dimensione fissa, Colore sfondo
 
-2️⃣ una Label con scritto: Benvenuto Studente
+2️⃣ Una Label con scritto: "Benvenuto Studente"
 
-3️⃣ un bottone: Saluta
+3️⃣ Un bottone: Saluta
 
-4️⃣ quando clicchi il bottone mostra un popup con: Ciao, benvenuto nel corso Python!
+4️⃣ Quando clicchi il bottone mostra un popup con: "Ciao, benvenuto nel corso Python!"
 
 REGOLE:
 ❌ NON usare funzioni fuori dalla classe
@@ -19,12 +19,12 @@ import tkinter as tk
 from tkinter import messagebox 
 
 class App:
-    # Creiamo il costruttore per l'oggetto
+
+    # CREIAMO I COSTRUTTORE PER L'OGGETTO
     def __init__(self, root):
         self.root = root
 
     # CREAZIONE DELLA FINESTRA
-    
         self.root.title("Welcome!")
         self.root.geometry("500x400")
         self.root.resizable(False, False) # Rendiamo la dimensione fissa
@@ -33,35 +33,35 @@ class App:
     # CREAZIONE DELLA LABEL
         self.label = tk.Label(
             self.root,
-            text="Benvenuto Studente",
-            font=("Times New Roman", 25, "bold"),
+            text="Welcome",
+            font=("Courier New", 25, "bold"),
             fg="#ffffff",
             bg="#847242",
-            cursor="hand2"
+            cursor="trek"
         )
         self.label.pack(pady=50)
 
-    # CREAZIONE DEL BOTTONE PARTE 2
+    # CREAZIONE DEL BOTTONE
         self.btn = tk.Button(
             self.root,
-            text = "Saluta",
+            text = "Hello :D",
             command = self.mostra_popup,
             fg="#ffffff",
             bg="#847242",
-            font=("Arial", 15, "bold"),
-            padx=20,
-            pady=10,
+            font=("Courier New", 15, "bold"),
+            padx=30,
+            pady=20,
             relief="flat",
-            cursor="hand2"
+            cursor="dotbox"
         )
         self.btn.pack(pady=50)
     
-    # METODO PER IL POPUP
+    # METODO PER MOSTRARE IL MESSAGGIO DI POPUP
     def mostra_popup(self):
-        messagebox.showinfo("Saluto", "Ciao, benvenuto nel corso Python!")
+        messagebox.showinfo("Hi :D", "Hello, this is part of Python course, and you're welcome!")
 
 # --- Avvio dell'applicazione ---
-# Questo blocco istanzia la classe e fa partire il programma
+# QUESTO BLOCCO PREPARA LA CLASSE E INIZIALIZZA IL PROGRAMMA
 if __name__ == "__main__":
     finestra_principale = tk.Tk()
     app = App(finestra_principale)
