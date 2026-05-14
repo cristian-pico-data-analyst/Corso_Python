@@ -4,26 +4,24 @@ from tkinter import messagebox
 root = tk.Tk()
 
 root.title("Radio Button")
-root.geometry("700x400")
+root.geometry("800x600")
 root.configure(bg="#ffffff")
+root.resizable(True, True)
 
 # Creare una lista di linguaggi
 linguaggi={
     ("Python", "Python"),
     ("Java", "Java"),
+    ("JavaScript", "JavaS"),
     ("C++", "C++"),
-    ("AI", "AI"),
+    ("SQL Server", "t-SQL"),
     ("R", "R"),
     ("Machine Learning", "Machine Learning"),
-    ("CSS", "CSS"),
+    ("CSS", "C-SHARP"),
     ("HTML", "HTML"),
-    ("C#", "C#")
+    ("C#", "C#"),
+    ("Delphy", "Delphy"),
 }
-
-# Checkbutton — variabile collegata BooleanVar
-var_check = tk.BooleanVar()
-check = tk.Checkbutton(root, text="Accetta termini", variable=var_check, bg="#05911c")
-check.pack()
 
 # Radiobutton — variabile collegata StringVar
 var_radio = tk.StringVar(value="Python")
@@ -33,10 +31,18 @@ for testo, valore in linguaggi: # ESEMPIO logico: <for "Python", "Python" in lin
     tk.Radiobutton(
         root,
         text = testo,
+        font=("Roboto", 10, "bold"),
         variable=var_radio,
         value=valore,
+        fg="#7D3FA1",
         bg="#ffffff"
-    ).pack(pady=5)
+    ).pack(pady=5, padx=5, anchor="w")
+
+
+# Checkbutton — variabile collegata BooleanVar
+var_check = tk.BooleanVar()
+check = tk.Checkbutton(root, font="Roboto", text="Accetta termini", variable=var_check, bg="#7D3FA1",fg="#ffffff")
+check.pack()
 
 """
 | ================================= SENZA CICLO FOR ================================= |
@@ -56,5 +62,5 @@ def mostra():
     messagebox.showinfo("Selected Button", f"Accetta termini: {var_check.get()}\nLinguaggio: {var_radio.get()}")
 
 
-tk.Button(root, text="Mostra selezione", command=mostra).pack(pady=10)
+tk.Button(root, text="Mostra selezione", command=mostra, bg="#7D3FA1",fg="#ffffff").pack(pady=10)
 root.mainloop()
