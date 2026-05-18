@@ -1,4 +1,5 @@
-pyodbc,
-pandas,
-matplotlib,
+pyodbc
+pandas
+matplotlib
 openpyxl
+xlsxwriter

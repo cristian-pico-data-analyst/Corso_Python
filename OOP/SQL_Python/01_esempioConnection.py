@@ -52,26 +52,44 @@ try:
     cursor.execute("EXEC dbo.sp_ListaTabelle")
 
     tabelle = [row[0] for row in cursor.fetchall()]
-    print("😊 Tabelle trovate")
-    for row in cursor.fetchall():
-        print(f"-> {row[0]}")
+
+    print("|Tabelle trovate|\n")
+    for t in tabelle:
+        print(f"-> {t}")
     
     print("⌛ Lettura delle tabelle in corso...")
 
     for tabella in tabelle:
-        print('\n=========================\n')
-        print(f'▫️ {tabella}\n')
-        print('\n=========================\n')
+        print('\n=========================')
+        print(f'▫️ {tabella}')
+        print('=========================\n')
 
         try:
-            query = f"SELECT * FROM {tabella}"
+            query = f"SELECT TOP 10 * FROM [{tabella}]"
             cursor.execute(query)
 
-            column = [desc[0] for desc in cursor.description]
-            print(f"😊 Colonne trovate:  {column}\n")
+            colonne = [desc[0] for desc in cursor.description]
+            print(f"🧩 Colonne: {colonne}")
+
+            rows = cursor.fetchall()
+
+            if not rows:
+                print("⚠️ Nessun record trovato.")
+                continue
             
-        except Exception:
-            print("\nAttenzione\n")
+            # Evita stampa di colonne binarie
+            for row in rows:
+                valori = []
+                for v in row:
+                    if isinstance(v, bytes):
+                        valori.append("<BINARY DATA>")
+                    else:
+                        valori.append(v)
+                print(" →", valori)
+                
+        except Exception as e:
+            print(f"⚠️ Errore nella tabella {tabella}: {e}")
+                
     
 
     #=============== VERSIONE 3 - PANDAS ===============
