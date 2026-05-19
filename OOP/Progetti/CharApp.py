@@ -17,9 +17,12 @@ class CharApp(tk.Tk):
         self.title("Graphic Application Excel")
         self.geometry("1000x650")
 
-        # Inserisco un'icona gif personalizzata
-        icona = tk.PhotoImage(file="C:/Users/crist/Desktop/Corso_Python/OOP/Progetti/laptop.png")
-        self.iconphoto(False, icona)
+        # Inserisco un'icona personalizzata (assicurati che il percorso esista)
+        try:
+            icona = tk.PhotoImage(file="C:/Users/crist/Desktop/Corso_Python/OOP/Progetti/laptop.png")
+            self.iconphoto(False, icona)
+        except tk.TclError:
+            print("Attenzione: Impossibile trovare l'icona specificata. Verrà usata quella di default.")
 
         # Inizializzazione della variabile per il DataFrame (vuoto all'avvio)
         self.df = None 
@@ -65,12 +68,13 @@ class CharApp(tk.Tk):
         """Apre una finestra di dialogo per selezionare un file Excel e lo carica tramite pandas."""
         file_path = filedialog.askopenfilename(
             title="Selezione File Excel",
-            filetypes=[("Excel files", "*.xlsx", "*.xls")]
+            # Corretto: le estensioni multiple si mettono in una sola stringa separate da spazio
+            filetypes=[("Excel files", "*.xlsx *.xls")] 
         )
 
-        # Se l'utente chiude la finestra di dialogo senza selezionare nulla, interrompe l'esecuzione
+        # Se l'utente chiude la finestra di dialogo senza selezionare nulla
         if not file_path:
-            return
+            return "Attenzione controlla il tipo di file"
 
         try:
             # Lettura del file Excel e assegnazione al DataFrame della classe
@@ -81,10 +85,10 @@ class CharApp(tk.Tk):
             print(self.df.head()) 
         except Exception as e:
             # Gestione delle eccezioni per eventuali errori di lettura o formato
-            messagebox.showerror("❌ Errore", f"Impossibile caricare il file: {e}")
+            messagebox.showerror("❌ Errore", f"Impossibile caricare il file:\n{e}")
 
     def generate_chart(self):
-        """Prepara l'area e genera il grafico in base al tipo selezionato (funzione da terminare)."""
+        """Prepara l'area e genera il grafico in base al tipo selezionato."""
         
         # Controllo di sicurezza: verifica che i dati siano stati precedentemente caricati
         if self.df is None:
@@ -95,13 +99,29 @@ class CharApp(tk.Tk):
         for widget in self.chart_area.winfo_children():
             widget.destroy()
 
-        # DA CONTINUARE
+        fig, ax = plt.subplots(1,1, figsize=(6, 4))
 
-        # Estrazione dei nomi delle prime quattro colonne dal DataFrame
+        # Estrazione dei nomi delle prime due colonne dal DataFrame
         col1 = self.df.columns[0]
         col2 = self.df.columns[1]
-        col3 = self.df.columns[2]
-        col4 = self.df.columns[3]
+
+        # Corretto: Bisogna usare self.char_type.get() invece di self.df.chart_type.get()
+        chart = self.char_type.get()
+
+        if chart == "Bar Chart":
+            ax.bar(self.df[col1].astype(str), self.df[col2], color="royalblue")
+            ax.set_title("Bar Chart")
+        elif chart == "Line Chart":
+            ax.plot(self.df[col1].astype(str), self.df[col2], marker="o", color="green")
+            ax.set_title("Line Chart")
+        elif chart == "Pie Chart":
+            ax.pie(self.df[col2], labels=self.df[col1], autopct='%1.1f%%')
+            ax.set_title("Pie Chart")
+
+        # Inserimento grafico in Tkinter
+        canvas = FigureCanvasTkAgg(fig, master=self.chart_area)
+        canvas.draw()
+        canvas.get_tk_widget().pack(fill="both", expand=True)
 
 # Punto di ingresso dell'applicazione
 if __name__ == "__main__":

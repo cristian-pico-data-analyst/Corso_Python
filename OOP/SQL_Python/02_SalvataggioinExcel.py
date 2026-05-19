@@ -35,10 +35,15 @@ try:
     
     # Ciclo per ogni tabella
     for tabella in tabelle:
+        # Escludi la tabella di sistema sysdiagrams (o altre eventuali)
+        if tabella.lower() in ["sysdiagrams", "sysdiagram"]:
+            print("⏭️  Salto la tabella di sistema: sysdiagrams")
+            continue # Passa direttamente alla tabella successiva
+        
         print(f"Elaborazione delle tabelle: {tabella}")
 
         try: 
-            query = f"SELECT * FROM [{tabella}]"
+            query = f"SELECT * FROM[{tabella}]"
             df = pd.read_sql(query, conn)
 
             # Evita stampa di colonne binarie
@@ -66,3 +71,5 @@ except:
         strCon.close()
     except:
         print("\n⚠️ Impossibile chiudere la connessione")
+
+
