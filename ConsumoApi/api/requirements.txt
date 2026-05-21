@@ -1,7 +1,0 @@
-fastapi 
-uvicorn 
-sqlalchemy 
-pyodbc 
-pydantic 
-python-dotenv
-flask
