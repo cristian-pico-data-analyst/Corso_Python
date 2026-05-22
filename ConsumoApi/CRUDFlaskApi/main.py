@@ -12,7 +12,7 @@ if crud_flask_api_dir not in sys.path:
     sys.path.append(crud_flask_api_dir)
 
 # ORA Python troverà la cartella 'database' senza problemi!
-from database import get_connection
+from database.database import get_connection
 
 router = APIRouter()
 

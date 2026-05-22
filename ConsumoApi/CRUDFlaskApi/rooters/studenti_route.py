@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from database import get_connection
+from ConsumoApi.CRUDFlaskApi.database.database import get_connection
 
 
 router = APIRouter(prefix="/studenti", tags=["Studenti"])
