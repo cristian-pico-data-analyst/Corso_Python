@@ -1,7 +1,7 @@
 # Importiamo FastAPI, il framework che gestisce le richieste web
 from fastapi import FastAPI
 # Importiamo la funzione che abbiamo creato nel file database.py per collegarci a SQL Server
-from database.database import get_connection
+from api.Database.db import get_connection
 
 # Inizializziamo l'applicazione. 
 # Il parametro 'title' cambia il nome che vedrai nella documentazione automatica
