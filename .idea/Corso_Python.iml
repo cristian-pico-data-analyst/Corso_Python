@@ -4,9 +4,7 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/Python_PyCharm/.venv" />
-      <excludeFolder url="file://$MODULE_DIR$/ConsumoApi/api/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/Projects/CRUDFlaskApi/.venv" />
-      <excludeFolder url="file://$MODULE_DIR$/ConsumoApi/CRUDFlaskApi/.venv" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.14 (Corso_Python)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
